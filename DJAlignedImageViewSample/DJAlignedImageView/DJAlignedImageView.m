@@ -267,6 +267,10 @@
     }
     
     CGSize imageSize = self.realImageView.image.size;
+    if (CGSizeEqualToSize(imageSize, CGSizeZero))
+    {
+        return size;
+    }
     
     switch (self.contentMode)
     {
