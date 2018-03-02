@@ -47,7 +47,7 @@
                           @"UIViewContentModeBottomRight", nil];
 
     self.alignedImageView.image = [UIImage imageNamed:@"1.jpg"];
-    //self.alignedImageView.enableScaleUp = NO;
+    self.alignedImageView.enableScaleUp = NO;
     self.alignedImageView.contentMode = UIViewContentModeScaleAspectFit;
     
     [self refreshContentModeButtonTitle];
@@ -78,40 +78,12 @@
 
 - (IBAction)verticallyAlignChanged:(UISegmentedControl *)sender
 {
-    self.alignedImageView.alignmentMask &= ~(DJImageViewAlignmentMaskTop | DJImageViewAlignmentMaskBottom);
-
-    switch (sender.selectedSegmentIndex)
-    {
-        case 0:
-            self.alignedImageView.alignmentMask |= DJImageViewAlignmentMaskTop;
-            break;
-            
-        case 2:
-            self.alignedImageView.alignmentMask |= DJImageViewAlignmentMaskBottom;
-            break;
-
-        default:
-            break;
-    }
+    self.alignedImageView.verticallyAlignment = sender.selectedSegmentIndex;
 }
 
 - (IBAction)horizontallyAlignChanged:(UISegmentedControl *)sender
 {
-    self.alignedImageView.alignmentMask &= ~(DJImageViewAlignmentMaskLeft | DJImageViewAlignmentMaskRight);
-
-    switch (sender.selectedSegmentIndex)
-    {
-        case 0:
-            self.alignedImageView.alignmentMask |= DJImageViewAlignmentMaskLeft;
-            break;
-            
-        case 2:
-            self.alignedImageView.alignmentMask |= DJImageViewAlignmentMaskRight;
-            break;
-            
-        default:
-            break;
-    }
+    self.alignedImageView.horizontallyAlignment = sender.selectedSegmentIndex;
 }
 
 - (void)refreshContentModeButtonTitle

@@ -67,7 +67,8 @@
     _enableScaleDown = YES;
     _enableScaleUp = YES;
     
-    _alignmentMask = DJImageViewAlignmentMaskCenter;
+    _horizontallyAlignment = DJImageViewHorizontallyAlignmentCenter;
+    _verticallyAlignment = DJImageViewVerticallyAlignmentCenter;
     
     _realImageView = [[UIImageView alloc] initWithFrame:self.bounds];
     _realImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -217,14 +218,25 @@
     [self setNeedsLayout];
 }
 
-- (void)setAlignmentMask:(DJImageViewAlignmentMask)alignmentMask
+- (void)setHorizontallyAlignment:(DJImageViewHorizontallyAlignment)horizontallyAlignment
 {
-    if (_alignmentMask == alignmentMask)
+    if (_horizontallyAlignment == horizontallyAlignment)
     {
         return ;
     }
     
-    _alignmentMask = alignmentMask;
+    _horizontallyAlignment = horizontallyAlignment;
+    [self setNeedsLayout];
+}
+
+- (void)setVerticallyAlignment:(DJImageViewVerticallyAlignment)verticallyAlignment
+{
+    if (_verticallyAlignment == verticallyAlignment)
+    {
+        return ;
+    }
+    
+    _verticallyAlignment = verticallyAlignment;
     [self setNeedsLayout];
 }
 
@@ -236,20 +248,20 @@
     
     CGRect realframe = CGRectMake((self.bounds.size.width - realsize.width)/2, (self.bounds.size.height - realsize.height) / 2, realsize.width, realsize.height);
     
-    if ((self.alignmentMask & DJImageViewAlignmentMaskLeft) != 0)
+    if (self.horizontallyAlignment == DJImageViewHorizontallyAlignmentLeft)
     {
         realframe.origin.x = 0;
     }
-    else if ((self.alignmentMask & DJImageViewAlignmentMaskRight) != 0)
+    else if (self.horizontallyAlignment == DJImageViewHorizontallyAlignmentRight)
     {
         realframe.origin.x = CGRectGetMaxX(self.bounds) - realframe.size.width;
     }
     
-    if ((self.alignmentMask & DJImageViewAlignmentMaskTop) != 0)
+    if (self.verticallyAlignment == DJImageViewVerticallyAlignmentTop)
     {
         realframe.origin.y = 0;
     }
-    else if ((self.alignmentMask & DJImageViewAlignmentMaskBottom) != 0)
+    else if (self.verticallyAlignment == DJImageViewVerticallyAlignmentBottom)
     {
         realframe.origin.y = CGRectGetMaxY(self.bounds) - realframe.size.height;
     }

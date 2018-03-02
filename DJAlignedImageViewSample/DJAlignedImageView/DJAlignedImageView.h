@@ -8,19 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_OPTIONS(NSUInteger, DJImageViewAlignmentMask)
+typedef NS_ENUM(NSUInteger, DJImageViewHorizontallyAlignment)
 {
-    DJImageViewAlignmentMaskCenter = 0,
-    
-    DJImageViewAlignmentMaskLeft   = 1 << 0,
-    DJImageViewAlignmentMaskRight  = 1 << 1,
-    DJImageViewAlignmentMaskTop    = 1 << 2,
-    DJImageViewAlignmentMaskBottom = 1 << 3,
-    
-    DJImageViewAlignmentMaskTopLeft = DJImageViewAlignmentMaskTop | DJImageViewAlignmentMaskLeft,
-    DJImageViewAlignmentMaskTopRight = DJImageViewAlignmentMaskTop | DJImageViewAlignmentMaskRight,
-    DJImageViewAlignmentMaskBottomLeft = DJImageViewAlignmentMaskBottom | DJImageViewAlignmentMaskLeft,
-    DJImageViewAlignmentMaskBottomRight = DJImageViewAlignmentMaskBottom | DJImageViewAlignmentMaskRight
+    // 左
+    DJImageViewHorizontallyAlignmentLeft = 0,
+    // Default 中
+    DJImageViewHorizontallyAlignmentCenter,
+    // 右
+    DJImageViewHorizontallyAlignmentRight,
+};
+
+typedef NS_ENUM(NSUInteger, DJImageViewVerticallyAlignment)
+{
+    // 上
+    DJImageViewVerticallyAlignmentTop = 0,
+    // Default 中
+    DJImageViewVerticallyAlignmentCenter,
+    // 下
+    DJImageViewVerticallyAlignmentBottom
 };
 
 NS_ASSUME_NONNULL_BEGIN
@@ -29,7 +34,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, readonly) UIImageView *realImageView;
 
-@property (nonatomic, assign) DJImageViewAlignmentMask alignmentMask;
+@property (nonatomic, assign) DJImageViewHorizontallyAlignment horizontallyAlignment;
+@property (nonatomic, assign) DJImageViewVerticallyAlignment verticallyAlignment;
 
 @property (nonatomic, assign) BOOL enableScaleUp;
 @property (nonatomic, assign) BOOL enableScaleDown;
