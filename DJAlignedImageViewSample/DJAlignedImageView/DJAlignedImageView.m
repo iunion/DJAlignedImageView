@@ -278,7 +278,9 @@
         return size;
     }
     
-    CGSize imageSize = self.realImageView.image.size;
+    //CGSize imageSize = self.realImageView.image.size;
+    CGSize imageSize = CGSizeMake(self.realImageView.image.size.width * self.realImageView.image.scale / [UIScreen mainScreen].scale, self.realImageView.image.size.height * self.realImageView.image.scale / [UIScreen mainScreen].scale);
+
     if (CGSizeEqualToSize(imageSize, CGSizeZero))
     {
         return size;
@@ -345,6 +347,16 @@
     return size;
 }
 
+- (void)sizeToFit
+{
+    [self.realImageView sizeToFit];
+    self.bounds = self.realImageView.bounds;
+}
+
+- (CGSize)sizeThatFits:(CGSize)size
+{
+    return [self.realImageView sizeThatFits:size];
+}
 
 @end
 
