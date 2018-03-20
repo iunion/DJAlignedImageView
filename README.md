@@ -30,30 +30,30 @@ DJAlignedImageView是继承UIView，用户可以设置图片在view中排列方�
 ## 图示
 
 ### 纵向图片
-1.全部`contentMode`
+1.全部`contentMode`<br/>
 ![](https://github.com/iunion/DJAlignedImageView/blob/master/H_all.gif)
 
-2.`ScaleToFill`
+2.`ScaleToFill`<br/>
 ![](https://github.com/iunion/DJAlignedImageView/blob/master/H_ScaleToFill.gif)
 
-3.`AspectFit`
+3.`AspectFit`<br/>
 ![](https://github.com/iunion/DJAlignedImageView/blob/master/H_AspectFit.gif)
 
-4.`AspectFill`
+4.`AspectFill`<br/>
 ![](https://github.com/iunion/DJAlignedImageView/blob/master/H_AspectFill.gif)
 
 
 ### 横向图片
-1.全部`contentMode`
+1.全部`contentMode`<br/>
 ![](https://github.com/iunion/DJAlignedImageView/blob/master/V_all.gif)
 
-2.`ScaleToFill`
+2.`ScaleToFill`<br/>
 ![](https://github.com/iunion/DJAlignedImageView/blob/master/V_ScaleToFill.gif)
 
-3.`AspectFit`
+3.`AspectFit`<br/>
 ![](https://github.com/iunion/DJAlignedImageView/blob/master/V_AspectFit.gif)
 
-4.`AspectFill`
+4.`AspectFill`<br/>
 ![](https://github.com/iunion/DJAlignedImageView/blob/master/V_AspectFill.gif)
 
 
